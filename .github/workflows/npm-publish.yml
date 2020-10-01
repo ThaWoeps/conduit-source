@@ -6,9 +6,10 @@ name: Conduit Deploy
 on:
   push:
     branches:
-      - master
-      - staging
-      - development
+      #- master
+      #- staging
+      #- development
+        - *
 
 jobs:
   build:
