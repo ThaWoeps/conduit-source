@@ -12,11 +12,16 @@ on:
       - main
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: echo "Constructoin Building!!!"
+      - run: |
+          pwd
+          ls -la    
+          cd conduit/backend
+          npm install
+          npm test 
