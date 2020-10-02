@@ -41,5 +41,5 @@ jobs:
           #password: ${{ secrets.PASSWORD }}
           #port: ${{ secrets.PORT }}
         run: |
-          cd conduit-source
+          cd ~/conduit-source
           git pull
