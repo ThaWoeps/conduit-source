@@ -42,8 +42,23 @@ jobs:
           #port: ${{ secrets.PORT }}
         run: |
           
-          pgrep -f app.js | xargs kill -9
-          pgrep -f frontend | xargs kill -9
+          if [ $(pgrep -f app.js | wc -l) -gt 0 ]
+          then
+            echo "Backend service is running!!!"
+            echo "Stopping app.js backend service"
+            pgrep -f app.js | xargs kill -9
+          else
+            echo "Backend app.js is not running!!!"
+          fi
+          
+          f [ $(pgrep -f app.js | wc -l) -gt 0 ]
+          then
+            echo "Frontend service is running!!!"
+            echo "Stopping frontend service"
+            pgrep -f frontend | xargs kill -9
+          else
+            echo "Frontend is not running!!!"
+          fi     
           
           cd ~/conduit-source
           git pull
