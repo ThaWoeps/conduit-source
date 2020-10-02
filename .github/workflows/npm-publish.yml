@@ -42,8 +42,8 @@ jobs:
           #port: ${{ secrets.PORT }}
         run: |
           
-          pkill -TERM npm
-          pkill -TERM node
+          pgrep -f app.js | xargs kill -SIGTERM
+          pgrep -f frontend | xargs kill -SIGTERM
           
           cd ~/conduit-source
           git pull
