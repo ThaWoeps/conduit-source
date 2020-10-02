@@ -41,5 +41,12 @@ jobs:
           #password: ${{ secrets.PASSWORD }}
           #port: ${{ secrets.PORT }}
         run: |
+          
+          pkill -TERM npm
+          pkill -TERM node
+          
           cd ~/conduit-source
           git pull
+          
+          cd ~/backend/ && npm start &
+          cd ~/frontend/ && npm start &
