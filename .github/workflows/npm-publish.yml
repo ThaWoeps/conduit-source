@@ -47,5 +47,4 @@ jobs:
           cd ~/conduit-source
           git pull
           
-          cd ~/backend/ && npm start &
-          cd ~/frontend/ && npm start &
+          ~/startServices.sh
