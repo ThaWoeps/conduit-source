@@ -42,8 +42,8 @@ jobs:
           #port: ${{ secrets.PORT }}
         run: |
           
-          pgrep -f app.js | xargs kill -SIGTERM
-          pgrep -f frontend | xargs kill -SIGTERM
+          pgrep -f app.js | xargs kill -9
+          pgrep -f frontend | xargs kill -9
           
           cd ~/conduit-source
           git pull
